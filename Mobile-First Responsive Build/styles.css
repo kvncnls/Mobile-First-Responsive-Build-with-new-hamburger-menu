@@ -9,7 +9,8 @@ body,
 p,
 a,
 ul,
-li {
+li,
+h1 {
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -109,6 +110,39 @@ h4 {
   grid-row: 1;
   padding-bottom: 10px;
   border-bottom: 3px solid var(--primary);
+  margin-top: 16px;
+}
+
+/* OVERLAY */
+.overlay-site-nav {
+  background-color: var(--primary);
+  height: 100vh;
+  overflow: hidden;
+  /* Kinda hacky, but I pushed the elements further down with 1k px margin-bottom. */
+  margin: 0 20px 1000px 20px;
+  position: sticky;
+}
+
+.overlay-site-nav h1 {
+  color: var(--secondary);
+}
+
+.overlay-nav-list {
+  display: flex !important;
+  grid-column: 4/7;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.overlay-nav-list li {
+  margin-top: 2rem;
+}
+
+.overlay-nav-list li a {
+  color: var(--secondary);
+  font-size: 1rem;
 }
 
 /* MENU ICON */
@@ -118,8 +152,7 @@ h4 {
   grid-row: 1;
   width: 24px;
   height: 24px;
-  position: relative;
-  margin: auto;
+  margin: 16px;
   /* Changes cursor into a pointer finger on hover */
   cursor: pointer;
   /* Hides overflow scrolling behavior */
@@ -128,7 +161,7 @@ h4 {
 
 /* Div Icon */
 .menu-icon div {
-  position: absolute;
+  position: relative;
   margin: auto;
   height: 4px;
   width: 24px;
@@ -146,33 +179,37 @@ h4 {
 }
 /* Second <div>, middle bar */
 .menu-icon div:nth-child(2) {
-  top: 10px;
+  top: 6px;
 }
 /* Third <div>, bottom bar */
 .menu-icon div:nth-child(3) {
-  top: 20px;
+  top: 12px;
 }
 
 /* Open Position of Div Elements */
 
 .menu-icon.open-position div:nth-child(1) {
-  /* Here we are moving the top bar 18px 
+  /* Here we are moving the top bar
     and rotating it 45deg.*/
   transform: rotate(45deg);
   top: 10px;
+  background-color: var(--secondary);
 }
 .menu-icon.open-position div:nth-child(2) {
   /* Middle bar disappears with 0 opacity,
     rotates 45 degrees, conforming with the top bar. */
   transform: rotate(45deg);
   opacity: 0;
+  top: 10px;
+  background-color: var(--secondary);
 }
 .menu-icon.open-position div:nth-child(3) {
-  /* Here we are moving the bottom bar 18px
+  /* Here we are moving the bottom bar
     We are also rotating it -45deg, 
     the opposite of the top bar, creating the "X". */
   transform: rotate(-45deg);
-  top: 10px;
+  top: 2px;
+  background-color: var(--secondary);
 }
 
 /* MENU ICON ENDS HERE */
@@ -318,6 +355,9 @@ footer img {
   }
   .welcome-img {
     grid-column: 5/9;
+  }
+  .overlay-site-nav li a {
+    font-size: 1.6rem;
   }
   #banner {
     width: 400%;
